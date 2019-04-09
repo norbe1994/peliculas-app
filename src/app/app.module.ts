@@ -1,8 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http'
+import { AppRoutingModule } from './app-routing.module'
+// componentes
+import { AppComponent } from './app.component'
+// servicios
+import { PeliculasService } from './services/peliculas.service'
 
 @NgModule({
   declarations: [
@@ -10,9 +13,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientJsonpModule,
+    HttpClientModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [PeliculasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
