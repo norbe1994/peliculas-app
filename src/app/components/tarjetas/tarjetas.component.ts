@@ -39,6 +39,6 @@ export class TarjetasComponent {
   esperar() {
     setTimeout(() => {
       this.loading = false
-    }, 1500)
+    }, 800)
   }
 }
