@@ -1,0 +1,11 @@
+.container {
+  max-width: 720px !important;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}

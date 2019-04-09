@@ -50,4 +50,20 @@ export class PeliculasService {
       return this.getCarteleraActual()
     }
   }
+
+  getPelicula(id: string) {
+    let url = `${this.urlMovieDb}/movie/${id}?api_key=${
+      this.apikey
+    }&language=es&external_source=freebase_id&callback=JSONP_CALLBACK`
+    return this.http.jsonp(url, '').pipe(map(res => res))
+  }
+
+  buscar(parametro: string) {
+    let url = `${this.urlMovieDb}/search/movie?api_key=${
+      this.apikey
+    }&language=es&query=${parametro}&callback=JSONP_CALLBACK`
+    return this.http.jsonp(url, '').pipe(map(res => res))
+  }
 }
+//https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
+// https://api.themoviedb.org/3/find/{external_id}?api_key=<<api_key>>&language=en-US&external_source=imdb_id

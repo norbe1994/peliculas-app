@@ -1,0 +1,32 @@
+<div class="container" *ngIf="!loading">
+  <div class="card animated fadeIn fast">
+    <a href={{pelicula.homepage}}>
+      <img *ngIf="image" src="https://image.tmdb.org/t/p/w500{{pelicula.backdrop_path}}"
+        class="card-img-top img-thumbnail" [alt]="pelicula.title" />
+      <img *ngIf="!image" src="assets/img/noimage.png" class="card-img-top img-thumbnail" [alt]="pelicula.title" />
+    </a>
+    <div class="card-body">
+      <h5 class="card-title">{{ pelicula.title }}</h5>
+      <p class="card-text">
+        {{ pelicula.overview }}
+      </p>
+      <p class="card-text">
+        Reseña Promedio: <strong class="text-muted">{{ pelicula.vote_average }}</strong>
+      </p>
+      <p class="card-text">
+        Presupuesto: <strong class="text-muted">{{ pelicula.budget | currency }}</strong>
+      </p>
+      <p class="card-text">
+        Ingresos: <strong class="text-muted">{{ pelicula.revenue | currency }}</strong>
+      </p>
+      <p class="card-text">
+        Neto: <strong
+          [ngClass]="{'text-green': pelicula.revenue > pelicula.budget, 'text-red': pelicula.revenue < pelicula.budget }">{{ pelicula.revenue - pelicula.budget | currency }}</strong>
+      </p>
+
+    </div>
+    <button (click)="regresar()" type="button" class="btn btn-danger btn-lg">
+      Regresar...
+    </button>
+  </div>
+</div>
