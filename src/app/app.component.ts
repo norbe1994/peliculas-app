@@ -11,5 +11,7 @@ export class AppComponent {
 
   constructor(private _ps: PeliculasService) {
     this._ps.getPopulares().subscribe(data => console.log(data))
+    this._ps.getCarteleraActual().subscribe(data => console.log(data))
+    this._ps.getKidsPopulares().subscribe(data => console.log(data))
   }
 }
