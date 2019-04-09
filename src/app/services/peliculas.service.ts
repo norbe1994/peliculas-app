@@ -39,5 +39,15 @@ export class PeliculasService {
     return this.http.jsonp(url, '').pipe(map(res => res))
   }
 
-  // imagen url image.tmdb.org/t/p/w300/
+  getPeliculas(categoria: string) {
+    if (categoria === 'actuales') {
+      return this.getCarteleraActual()
+    } else if (categoria === 'populares') {
+      return this.getPopulares()
+    } else if (categoria === 'kids') {
+      return this.getKidsPopulares()
+    } else {
+      return this.getCarteleraActual()
+    }
+  }
 }

@@ -1,9 +1,30 @@
-<div class="card-columns m5 animated fadeIn">
-  <div *ngFor="let pelicula of peliculas" class="card puntero">
-    <img src="https://image.tmdb.org/t/p/w500{{pelicula.poster_path}}" alt="imagen de película" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">{{ pelicula.title }}</h5>
-      <p class="card-text">{{ pelicula.overview }}</p>
+<div class="container">
+  <form (ngSubmit)="getPeliculas(opcion)">
+    <div class="form-row align-items-center">
+      <div class="col-auto my-1">
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="opcion" name="opcion">
+          <option value="populares" selected>Populares</option>
+          <option value="actuales">En Cartelera</option>
+          <option value="kids">Niños</option>
+        </select>
+      </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="!loading">
+    <div class="card-columns m5 animated fadeIn">
+      <div>
+        <div *ngFor="let pelicula of peliculas" class="card puntero">
+          <img src="https://image.tmdb.org/t/p/w500{{pelicula.poster_path}}" alt="imagen de película"
+            class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ pelicula.title }}</h5>
+            <p class="card-text">{{ pelicula.overview }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
