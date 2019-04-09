@@ -1,0 +1,9 @@
+<div class="card-columns m5 animated fadeIn">
+  <div *ngFor="let pelicula of peliculas" class="card puntero">
+    <img src="https://image.tmdb.org/t/p/w500{{pelicula.poster_path}}" alt="imagen de película" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{ pelicula.title }}</h5>
+      <p class="card-text">{{ pelicula.overview }}</p>
+    </div>
+  </div>
+</div>

@@ -8,10 +8,11 @@ import { NavbarComponent } from './components/navbar/navbar.component'
 import { HomeComponent } from './components/home/home.component'
 import { BuscarComponent } from './components/buscar/buscar.component'
 // servicios
-import { PeliculasService } from './services/peliculas.service'
+import { PeliculasService } from './services/peliculas.service';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component'
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, BuscarComponent],
+  declarations: [AppComponent, NavbarComponent, HomeComponent, BuscarComponent, TarjetasComponent],
   imports: [BrowserModule, HttpClientJsonpModule, HttpClientModule, AppRoutingModule],
   providers: [PeliculasService],
   bootstrap: [AppComponent]
